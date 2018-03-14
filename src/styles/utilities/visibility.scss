@@ -1,0 +1,22 @@
+.is-hidden {
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+}
+
+.show-for-sr {
+  position: absolute !important; /* stylelint-disable-line declaration-no-important */
+
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+
+  white-space: nowrap;
+  clip-path: inset(50%);
+}

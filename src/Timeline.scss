@@ -1,0 +1,29 @@
+@import './styles/init';
+
+.container {
+  opacity: 0;
+  min-height: 400vh;
+  transition: opacity .3s $curve-deceleration .2s;
+
+  &::before {
+    border-radius: $spacing-small/2;
+    height: 100%;
+    position: absolute;
+    top: -4.25rem;
+    left: 50%;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top center;
+    background-color: $light-color;
+    content: '';
+    width: $spacing-small;
+    transition: transform .3s $curve-acceleration;
+  }
+
+  &.is-active {
+    opacity: 1;
+
+    &::before {
+      transform: translateX(-50%) scaleY(1);
+    }
+  }
+}

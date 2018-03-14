@@ -1,0 +1,24 @@
+@import '../init';
+
+.padding-xsmall {
+  padding: $spacing-xsmall;
+}
+
+
+.padding-vertical-small {
+  padding-top: $spacing-small;
+  padding-bottom: $spacing-small;
+}
+
+.padding-vertical-xsmall {
+  padding-top: $spacing-xsmall;
+  padding-bottom: $spacing-xsmall;
+}
+
+.margin-left-small {
+  margin-left: $spacing-small;
+}
+
+.margin-right-xsmall {
+  margin-right: $spacing-xsmall;
+}

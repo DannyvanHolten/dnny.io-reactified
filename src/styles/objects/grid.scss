@@ -1,0 +1,32 @@
+@import '../init';
+
+.full {
+  width: 100%;
+}
+
+.row {
+  position: relative;
+
+  display: flex;
+
+  width: 100%;
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+  flex-flow: row wrap;
+
+  padding-right: $spacing-regular/2;
+  padding-left: $spacing-regular/2;
+}
+
+.column {
+  padding-right: $spacing-regular/2;
+  padding-left: $spacing-regular/2;
+  flex: 0 0 100%;
+}
+
+.column-6 {
+  @include for-tablet-portrait-up {
+    flex: 0 0 50%;
+  }
+}

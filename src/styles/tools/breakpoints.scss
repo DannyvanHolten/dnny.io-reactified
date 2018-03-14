@@ -1,0 +1,25 @@
+@import '../settings/breakpoints';
+
+@mixin for-tablet-portrait-up {
+  @media screen and (min-width: map_get($breakpoints, 'tablet-portrait')) {
+    @content;
+  }
+}
+
+@mixin for-tablet-landscape-up {
+  @media screen and (min-width: map_get($breakpoints, 'tablet-landscape')) {
+    @content;
+  }
+}
+
+@mixin for-desktop-up {
+  @media screen and (min-width: map_get($breakpoints, 'desktop')) {
+    @content;
+  }
+}
+
+@mixin for-big-desktop-up {
+  @media screen and (min-width: map_get($breakpoints, 'big-desktop')) {
+    @content;
+  }
+}

@@ -1,20 +1,50 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import styles from './App.scss';
+import React, { Fragment, Component } from 'react';
+import scrollToComponent from 'react-scroll-to-component';
+
+import Hero from './Hero';
+import Nav from './Nav';
+import Timeline from './Timeline';
+
+import './styles/generic/generic.scss';
+import './styles/elements/elements.scss';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isExpanded: false,
+    };
+  }
+
+  expandTimeline = () => {
+    const { isExpanded } = this.state;
+
+    if (!isExpanded) {
+      // scrollToComponent(this.Timeline, { offset: 0, align: 'top', duration: 500, ease: 'inCirc' });
+
+      this.setState({
+        isExpanded: true,
+      });
+    }
+  };
+
   render() {
+    const { isExpanded } = this.state;
+
     return (
-      <div className={styles.App}>
-        <div className={styles.Appheader}>
-          <img src={logo} className={styles.Applogo} alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className={styles.Appintro}>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Fragment>
+        <Nav />
+        <Hero
+          {...{
+            expandTimeline: this.expandTimeline,
+            isExpanded,
+          }}
+        />
+        <Timeline isExpanded={isExpanded} ref={(section) => { this.Timeline = section; }} />
+      </Fragment>
     );
   }
 }
+
 export default App;

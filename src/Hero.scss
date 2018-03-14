@@ -1,0 +1,50 @@
+@import './styles/init';
+
+.container {
+  height: 100vh;
+  transition: height .3s $curve-standard .1s;
+
+  &.is-active {
+    height: 10rem;
+  }
+}
+
+.circle {
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+  border: $spacing-xsmall solid $light-color;
+  cursor: pointer;
+  transform: rotate(-90deg) translateX(0);
+  transition: transform .3s $curve-standard;
+  line-height: 1;
+  transform-origin: center;
+
+  &.is-active,
+  &:hover {
+    transform: rotate(-90deg) translateX(-2.5vh);
+
+    .name {
+      transform: translateX(-5rem);
+    }
+  }
+
+  &.is-active {
+    border-color: transparent;
+    color: transparent;
+    cursor: default;
+    transform: rotate(-90deg) translateX(5rem);
+    transition: transform .3s $curve-standard, border-color .3s $curve-acceleration, color .3s $curve-acceleration;
+  }
+}
+
+.name {
+  width: 10rem;
+  border-radius: 25%;
+  left: $spacing-large*1.25;
+  transition: transform .3s $curve-standard;
+}
+
+.arrow {
+  transform: rotate(180deg);
+}
