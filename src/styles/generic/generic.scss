@@ -3,7 +3,7 @@
 body {
   margin: 0;
 
-  background-color: $secondary-color-900;
+  background-color: $primary-color-900;
   font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   font-weight: $font-weight-light;
@@ -11,6 +11,15 @@ body {
   color: $light-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  :global(&.is-active) {
+    background-color: $bg-color;
+    color: $text-color;
+
+    transition-property: background-color, color;
+    transition-duration: .3s;
+    transition-timing-function: $curve-standard;
+  }
 }
 
 *,

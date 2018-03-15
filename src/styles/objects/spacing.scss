@@ -4,10 +4,8 @@
   padding: $spacing-xsmall;
 }
 
-
-.padding-vertical-small {
-  padding-top: $spacing-small;
-  padding-bottom: $spacing-small;
+.padding-small {
+  padding: $spacing-small;
 }
 
 .padding-vertical-xsmall {
@@ -15,10 +13,47 @@
   padding-bottom: $spacing-xsmall;
 }
 
-.margin-left-small {
-  margin-left: $spacing-small;
+.padding-vertical-medium {
+  padding-top: $spacing-medium;
+  padding-bottom: $spacing-medium;
+}
+
+.padding-regular {
+  padding: $spacing-regular;
+}
+
+.padding-bottom-regular {
+  padding-bottom: $spacing-regular;
+}
+
+.padding-bottom-medium {
+  padding-bottom: $spacing-medium;
+}
+
+.padding-right-large {
+  padding-right: $spacing-large;
+}
+
+.padding-left-large {
+  padding-left: $spacing-large;
+}
+
+.margin-top-large {
+  margin-top: $spacing-large;
 }
 
 .margin-right-xsmall {
   margin-right: $spacing-xsmall;
+}
+
+.margin-right-small {
+  margin-right: $spacing-small;
+}
+
+.margin-bottom-medium {
+  margin-bottom: $spacing-medium;
+}
+
+.margin-left-small {
+  margin-left: $spacing-small;
 }

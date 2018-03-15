@@ -1,13 +1,4 @@
-@import './styles/init';
-
-.container {
-  height: 100vh;
-  transition: height .3s $curve-standard .1s;
-
-  &.is-active {
-    height: 10rem;
-  }
-}
+@import '../styles/init';
 
 .circle {
   border-radius: 50%;
@@ -20,21 +11,20 @@
   line-height: 1;
   transform-origin: center;
 
-  &.is-active,
   &:hover {
     transform: rotate(-90deg) translateX(-2.5vh);
 
     .name {
-      transform: translateX(-5rem);
+      transform: translateX(-1rem);
     }
   }
 
   &.is-active {
-    border-color: transparent;
-    color: transparent;
-    cursor: default;
-    transform: rotate(-90deg) translateX(5rem);
-    transition: transform .3s $curve-standard, border-color .3s $curve-acceleration, color .3s $curve-acceleration;
+    transform: scale(.2) rotate(-90deg) translateX(0);
+
+    &:hover {
+      transform: scale(.2) rotate(-90deg) translateX(-2.5vh);
+    }
   }
 }
 
@@ -42,7 +32,7 @@
   width: 10rem;
   border-radius: 25%;
   left: $spacing-large*1.25;
-  transition: transform .3s $curve-standard;
+  transition: transform .2s $curve-standard;
 }
 
 .arrow {

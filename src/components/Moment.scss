@@ -1,0 +1,53 @@
+@import '../styles/init';
+
+.header {
+  border-radius: 3px 3px 0 0;
+
+  @include for-tablet-portrait-up {
+    &::before {
+      position: absolute;
+      display: block;
+      content: '';
+      background-color: rgba($primary-color-300, .5);
+      border: $spacing-small/2 solid $light-color;
+      height: $spacing-regular*1.25;
+      width: $spacing-regular*1.25;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .order {
+    border-radius: 0 0 3px 3px;
+    order: 2;
+  }
+}
+
+.left::before {
+  right: -3.1675rem;
+}
+
+.right::before {
+  left: -3.1675rem;
+}
+
+.date {
+  white-space: nowrap;
+  border-radius: 3px;
+  padding: $spacing-xsmall/2 $spacing-xsmall;
+  right: $spacing-regular;
+  bottom: 0;
+  transform: translateY(50%);
+  box-shadow: inset 0 -2px 0 0 $secondary-color-300;
+}
+
+.figure {
+  overflow: hidden;
+  border-radius: 0 0 3px 3px;
+  line-height: 0;
+
+  &.order {
+    border-radius: 3px 3px 0 0;
+  }
+}

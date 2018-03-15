@@ -1,9 +1,8 @@
 import React, { Fragment, Component } from 'react';
-import scrollToComponent from 'react-scroll-to-component';
 
-import Hero from './Hero';
-import Nav from './Nav';
-import Timeline from './Timeline';
+import Hero from './components/Hero';
+import Nav from './components/Nav';
+import Timeline from './components/Timeline';
 
 import './styles/generic/generic.scss';
 import './styles/elements/elements.scss';
@@ -20,27 +19,25 @@ class App extends Component {
   expandTimeline = () => {
     const { isExpanded } = this.state;
 
-    if (!isExpanded) {
-      // scrollToComponent(this.Timeline, { offset: 0, align: 'top', duration: 500, ease: 'inCirc' });
+    document.body.classList.toggle('is-active');
 
-      this.setState({
-        isExpanded: true,
-      });
-    }
+    this.setState({
+      isExpanded: !isExpanded,
+    });
   };
 
   render() {
     const { isExpanded } = this.state;
 
+    const settings = {
+      expandTimeline: this.expandTimeline,
+      isExpanded,
+    };
+
     return (
       <Fragment>
-        <Nav />
-        <Hero
-          {...{
-            expandTimeline: this.expandTimeline,
-            isExpanded,
-          }}
-        />
+        <Nav {...settings} />
+        <Hero {...settings} />
         <Timeline isExpanded={isExpanded} ref={(section) => { this.Timeline = section; }} />
       </Fragment>
     );

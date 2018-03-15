@@ -1,0 +1,36 @@
+@import '../styles/init';
+
+.container {
+  opacity: 0;
+  transition: opacity .3s $curve-deceleration .2s;
+
+  @include for-tablet-portrait-up {
+    margin-top: 7.5vh;
+    margin-bottom: 7.5vh;
+
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+
+    &::before {
+      border-radius: $spacing-small/2;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleY(0);
+      transform-origin: top center;
+      background-color: $light-color;
+      content: '';
+      width: $spacing-small;
+      transition: transform .3s $curve-acceleration;
+    }
+  }
+}
+
+.is-active {
+  opacity: 1;
+
+  &::before {
+    transform: translateX(-50%) scaleY(1);
+  }
+}

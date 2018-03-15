@@ -1,0 +1,12 @@
+@import '../styles/init';
+
+.container {
+  width: 100%;
+  z-index: 2;
+  height: 100vh;
+  transition: height .3s $curve-standard .1s;
+}
+
+.is-active {
+  height: 3.5rem
+}
