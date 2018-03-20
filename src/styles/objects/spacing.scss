@@ -8,14 +8,13 @@
   padding: $spacing-small;
 }
 
+.padding-medium {
+  padding: $spacing-medium
+}
+
 .padding-vertical-xsmall {
   padding-top: $spacing-xsmall;
   padding-bottom: $spacing-xsmall;
-}
-
-.padding-vertical-medium {
-  padding-top: $spacing-medium;
-  padding-bottom: $spacing-medium;
 }
 
 .padding-regular {

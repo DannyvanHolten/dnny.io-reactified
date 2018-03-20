@@ -1,5 +1,9 @@
 @import '../styles/init';
 
+.container {
+  max-width: 640px;
+}
+
 .circle {
   border-radius: 50%;
   height: 10rem;

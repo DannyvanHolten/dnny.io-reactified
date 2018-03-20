@@ -1,22 +1,55 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import cn from 'classnames';
 
 import o from '../styles/objects.scss';
 import c from './Moment.scss';
 
-class Moment extends PureComponent {
+class Moment extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rowSpan: 20,
+      style: { gridRowEnd: 'span ' + 20 },
+    };
+  }
+
+  calculateSpan = () => {
+    const { rowSpan } = this.state;
+    const height = Math.ceil(this.element.clientHeight / 4 + 6);
+
+    if (rowSpan !== height) {
+      this.setState({
+        rowSpan: height,
+        style: { gridRowEnd: 'span ' + height },
+      });
+    }
+  };
+
+  componentDidMount() {
+    window.addEventListener('resize', this.calculateSpan);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.calculateSpan);
+  }
+
+  componentDidUpdate() {
+    this.calculateSpan();
+  }
+
   render() {
-    const { title, date, bottom, position } = this.props;
+    const { title, date, image, bottom, position } = this.props;
+    const { style } = this.state;
 
     return (
-      <div className={cn(o.column, o['column-11'])}>
-        <article className={cn(
-          o['position-relative'],
-          o['display-flex'],
-          o['flex-column'],
-          o['margin-bottom-medium'],
-          position === 'right' && o['margin-top-large'],
-        )}
+      <div style={style}>
+        <article
+          ref={(e) => this.element = e}
+          className={cn(
+            o['position-relative'],
+            o['display-flex'],
+            o['flex-column'],
+          )}
         >
           <h1 className={cn(
             o['margin-reset'],
@@ -30,8 +63,6 @@ class Moment extends PureComponent {
             o['bg-light-color'],
             o['font-weight-light'],
             c.header,
-            bottom && c.order,
-            position === 'right' ? c.right : c.left,
           )}
           >
             {title}
@@ -49,9 +80,9 @@ class Moment extends PureComponent {
               {date}
             </span>
           </h1>
-          <figure className={cn(c.figure, bottom && c.order)}>
-            <img src="https://bestellen-op-afbetaling.nl/wp-content/uploads/2016/12/Wehkamp-op-afbetaling.jpg" />
-          </figure>
+          {image && <figure className={cn(c.figure, bottom && c.order)}>
+            <img width="352" src={image} />
+          </figure>}
         </article>
       </div>
     );

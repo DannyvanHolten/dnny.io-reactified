@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import cn from 'classnames';
-
 import moments from '../data/moments.json';
 import Moment from './Moment';
 
@@ -12,19 +11,25 @@ class Timeline extends PureComponent {
   render() {
     const { isExpanded } = this.props;
 
-    console.log(moments);
     return (
       <section
         className={cn(
           o.row,
-          o['position-relative'],
-          o['padding-vertical-medium'],
-          o['align-justify'],
           c.container,
           isExpanded ? c['is-active'] : u['show-for-sr'],
         )}
       >
-        {moments.map(moment => <Moment key={moment.date} {...moment} />)}
+
+        <aside className={cn(o.area, o['padding-medium'])} style={{ gridRowEnd: 'span 70' }}>
+          <h2><span className={o['color-primary-300']}>HELLO WORLD! I AM</span><br />DANNY VAN HOLTEN</h2>
+          <p>
+            And I am very pleased to see you here.
+            Looking for a web developer specialized in front-end?
+            Look no further for I am your man.
+          </p>
+        </aside>
+
+        {moments.map((moment, index) => <Moment key={moment.date} {...moment} />)}
       </section>
     );
   }

@@ -38,7 +38,7 @@ class App extends Component {
       <Fragment>
         <Nav {...settings} />
         <Hero {...settings} />
-        <Timeline isExpanded={isExpanded} ref={(section) => { this.Timeline = section; }} />
+        <Timeline isExpanded={isExpanded} />
       </Fragment>
     );
   }

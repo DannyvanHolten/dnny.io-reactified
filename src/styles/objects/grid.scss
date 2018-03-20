@@ -7,26 +7,21 @@
 .row {
   position: relative;
 
-  display: flex;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-auto-rows: 4px;
+  grid-gap: 0 $spacing-medium;
 
   width: 100%;
-  max-width: 800px;
-  margin-right: auto;
-  margin-left: auto;
-  flex-flow: row wrap;
-
-  padding-right: $spacing-regular/2;
-  padding-left: $spacing-regular/2;
 }
 
-.column {
-  padding-right: $spacing-regular/2;
-  padding-left: $spacing-regular/2;
-  flex: 0 0 100%;
-}
+.area {
+  > *:first-child {
+    margin-top: 0;
+  }
 
-.column-11 {
-  @include for-tablet-portrait-up {
-    flex: 0 0 11/24*100%;
+  > *:last-child {
+    margin-bottom: 0;
   }
 }
